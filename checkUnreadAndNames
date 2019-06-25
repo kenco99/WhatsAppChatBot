@@ -1,0 +1,29 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+driver = webdriver.Chrome('C:\ChromeDriver\chromedriver.exe')
+driver.get('https://web.whatsapp.com/')
+
+input("Press enter")
+
+for i in range(1, 10):
+    try:
+        a = "//*[@id=\"pane-side\"]/div[1]/div/div/div[" + str(i) + "]/div/div/div[2]/div[1]/div[1]/span/span"
+        b = driver.find_element_by_xpath(a)
+        print(b.text)
+        try:
+            c = "//*[@id=\"pane-side\"]/div[1]/div/div/div[" + str(i) + "]/div/div/div[2]/div[2]/div[2]/span[1]/div"
+            d = driver.find_element_by_xpath(c)
+            print(d.text)
+        except Exception as e1:
+            print("Error")
+            continue
+
+    except Exception as e:
+        print("Error")
+        continue
+
+#def mainProgram(name, unread):
+#//*[@id="pane-side"]/div[1]/div/div/div[9]/div/div/div[2]/div[2]/div[2]/span[1]/div/span
+#//*[@id="pane-side"]/div[1]/div/div/div[9]/div/div/div[2]/div[1]/div[1]/span/span
+#//*[@id="app"]/div/span[4]/div/ul/li[1]/div
